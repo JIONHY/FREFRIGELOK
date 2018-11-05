@@ -6,23 +6,23 @@ use Illuminate\Database\Migrations\Migration;
 
 class MateriaPrima extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
-        //
+        Schema::create('materia_prima', function (Blueprint $table) {
+                    $table->increments('id_Mat');
+					$table->string('Mat_Prima');
+					$table->integer('Tipo');
+					$table->integer('Unidad_Medida');
+					$table->string('Unidad_Existencia');
+					$table->string('Inventario');
+					$table->rememberToken();
+				    $table->timestamps();
+        });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        //
+     Schema::drop('materia_prima');
     }
 }
